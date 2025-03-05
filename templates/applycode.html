@@ -1,0 +1,33 @@
+{% extends 'application.html' %}
+{% load static%}
+{% block content %}
+<div class="container card">
+    <h1>Users applied</h1>
+    <div class="card-body">
+        <table class="table table-hover">
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Address</th>
+                <th>Position</th>
+                <th>Resume</th>
+            </tr>
+            {% for u in users %}
+                <tr>
+                    <td>{{c.name}}</td>
+                    <td>{{c.email}}</td>
+                    <td>{{c.Phone}}</td>
+                    <td>{{c.Address}}</td>
+                    <td>{{c.Position}}</td>
+                    {% if c.resume %}
+                    <td><a href='{{c.resume.url}}' download >{{c.resume}}</td></a></td>
+                    {% else %}
+                    <td>Not submitted</td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+{% endblock %}
